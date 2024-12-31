@@ -1,12 +1,43 @@
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
-  name: "Next.js",
-  description:
-    "Beautifully designed components built with Radix UI and Tailwind CSS.",
+  name: "Anh Khoa Phat",
+  description: "Highquality power tool solutions",
   mainNav: [
     {
-      title: "Home",
+      title: "Trang chủ",
+      href: "/",
+    },
+    {
+      title: "Về chúng tôi",
+      href: "/",
+    },
+    {
+      title: "Sản phẩm",
+      href: "/",
+    },
+    {
+      title: "Phụ Kiện",
+      href: "/",
+    },
+    {
+      title: "Công Nghệ",
+      href: "/",
+    },
+    {
+      title: "Catalogue",
+      href: "/",
+    },
+    {
+      title: "Dịch Vụ",
+      href: "/",
+    },
+    {
+      title: "Nơi mua hàng",
+      href: "/",
+    },
+    {
+      title: "Liên Hệ",
       href: "/",
     },
   ],
