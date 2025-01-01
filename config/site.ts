@@ -16,29 +16,29 @@ export const siteConfig = {
       title: "Sản phẩm",
       href: "/",
     },
-    {
-      title: "Phụ Kiện",
-      href: "/",
-    },
-    {
-      title: "Công Nghệ",
-      href: "/",
-    },
-    {
-      title: "Catalogue",
-      href: "/",
-    },
-    {
-      title: "Dịch Vụ",
-      href: "/",
-    },
-    {
-      title: "Nơi mua hàng",
-      href: "/",
-    },
+    // {
+    //   title: "Phụ Kiện",
+    //   href: "/",
+    // },
+    // {
+    //   title: "Công Nghệ",
+    //   href: "/",
+    // },
+    // {
+    //   title: "Catalogue",
+    //   href: "/",
+    // },
+    // {
+    //   title: "Dịch Vụ",
+    //   href: "/",
+    // },
+    // {
+    //   title: "Nơi mua hàng",
+    //   href: "/",
+    // },
     {
       title: "Liên Hệ",
-      href: "/",
+      href: "/contact",
     },
   ],
   links: {
