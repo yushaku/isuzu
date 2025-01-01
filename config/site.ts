@@ -8,10 +8,10 @@ export const siteConfig = {
       title: "Trang chủ",
       href: "/",
     },
-    {
-      title: "Về chúng tôi",
-      href: "/",
-    },
+    // {
+    //   title: "Về chúng tôi",
+    //   href: "/",
+    // },
     {
       title: "Sản phẩm",
       href: "/",

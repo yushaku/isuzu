@@ -28,7 +28,7 @@ const images = [
 
 export default function IndexPage() {
   return (
-    <section className="grid items-center gap-6 pb-8">
+    <section className="grid items-center gap-6 overflow-hidden pb-8">
       <Carousel className="w-full">
         <CarouselPrevious />
         <CarouselContent>
@@ -64,6 +64,7 @@ export default function IndexPage() {
           </Link>
         </div>
       </div>
+
       <Categories />
       <Feedback />
     </section>
@@ -72,15 +73,18 @@ export default function IndexPage() {
 
 const BestProducts = () => {
   return (
-    <div>
-      <h3 className="mb-5 mt-10 text-center text-3xl font-bold text-primary">
+    <div className="container p-4 lg:py-10">
+      <h3 className="mb-5 mt-10 text-left text-3xl font-bold text-primary md:text-center">
         Sản phẩm nổi bật
       </h3>
 
-      <Carousel className="container p-10">
+      <Carousel className="overflow-hidden">
         <CarouselContent>
           {topProducts.map((item, index) => (
-            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/5">
+            <CarouselItem
+              key={index}
+              className="basis-1/2 md:basis-1/2 lg:basis-1/5"
+            >
               <Card className="relative mt-14 overflow-visible rounded-3xl text-center">
                 <img src={item.image} alt="image" className="h-48 w-full" />
 
@@ -125,7 +129,7 @@ const Categories = () => {
             {cate.title}
           </h4>
 
-          <article className="flex">
+          <article className="flex flex-col md:flex-row">
             <div
               className="my-2 w-80 rounded-xl bg-cover bg-center"
               style={{ backgroundImage: `url("${cate.banner}")` }}
@@ -136,7 +140,7 @@ const Categories = () => {
                 {cate.items.map((item, index) => (
                   <CarouselItem
                     key={index}
-                    className="py-2 md:basis-1/2 lg:basis-1/4"
+                    className="basis-full py-2 md:basis-1/2 lg:basis-1/4"
                   >
                     <Card className="text-center hover:shadow-xl">
                       <img
@@ -193,7 +197,10 @@ const Feedback = () => {
       <Carousel className="container p-10">
         <CarouselContent>
           {feedbacks.map((item, index) => (
-            <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+            <CarouselItem
+              key={index}
+              className="basis-full md:basis-1/2 lg:basis-1/3"
+            >
               <Card className="relative mt-14 overflow-visible rounded-2xl text-center">
                 <Avatar className="absolute -top-8 left-1/2 size-16 -translate-x-1/2">
                   <AvatarImage src="https://github.com/shadcn.png" />
