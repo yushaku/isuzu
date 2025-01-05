@@ -7,7 +7,7 @@ import { Icons } from "./icons"
 export const Footer = () => {
   return (
     <footer className="border-t border-muted bg-card pt-8 text-card-foreground">
-      <section className="container">
+      <section className="container flex flex-col md:flex-row">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           <div className="col-span-2">
             <h2 className="mb-4 text-lg font-bold text-primary">

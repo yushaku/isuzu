@@ -75,8 +75,8 @@ export const topProducts = [
 export const categories = [
   {
     title: "Makita",
-    banner:
-      "https://sudospaces.com/phonglien-vn/2021/07/may-khoan-bat-vit-makita.png",
+    banner: "https://sudospaces.com/phonglien-vn/2021/07/may-khoan-bat-vit-makita.png",
+    smBanner: "https://sudospaces.com/phonglien-vn/2021/07/may-khoan-bat-vit-makita.png",
     items: [
       {
         name: "Máy mài góc CT trượt MAKITA - 9553NB (100MM-710W)",
@@ -122,6 +122,7 @@ export const categories = [
   },
   {
     title: "DCK",
+    smBanner: "https://sudospaces.com/phonglien-vn/2021/10/may-cong-cu-dck-chinh-hang-gia-tot-4.png",
     banner:
       "https://sudospaces.com/phonglien-vn/2024/05/banner-home-500x750-dck.png",
     items: [
@@ -170,6 +171,7 @@ export const categories = [
   {
     title: "BOSCH",
     banner: "https://sudospaces.com/phonglien-vn/2023/10/banner-bosch.jpg",
+    smBanner: "https://sudospaces.com/phonglien-vn/2021/07/banner-option-bosch.png",
     items: [
       {
         name: "Máy mài góc CT trượt MAKITA - 9553NB (100MM-710W)",

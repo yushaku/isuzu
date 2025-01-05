@@ -15,8 +15,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel"
 
 const images = [
@@ -28,43 +26,22 @@ const images = [
 
 export default function IndexPage() {
   return (
-    <section className="grid items-center gap-6 overflow-hidden pb-8">
+    <section className="grid items-center gap-6 pb-8">
       <Carousel className="w-full">
-        <CarouselPrevious />
         <CarouselContent>
           {images.map((src, index) => (
             <CarouselItem key={index}>
-              <div className="h-[70dvh] rounded-lg">
-                <div
-                  className="size-full rounded bg-cover bg-center"
-                  style={{ backgroundImage: `url(${src})` }}
-                ></div>
-              </div>
+              <div
+                className="bg-cover bg-center h-[70dvh] w-full rounded-lg"
+                style={{ backgroundImage: `url(${src})` }}
+              ></div>
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselNext />
       </Carousel>
 
       <BestProducts />
-
-      <div
-        className="size-full rounded bg-cover bg-center"
-        style={{ backgroundImage: `url(/banner.webp)` }}
-      >
-        <div className="container p-10 text-center text-primary-foreground">
-          <p className="text-lg">Mua hàng dễ dàng</p>
-          <h3 className="mb-5 text-2xl">Không cần Đến Shop</h3>
-
-          <Link
-            href="/contact"
-            className="my-10 rounded-lg border bg-border px-4 py-2 text-primary"
-          >
-            Liên hệ ngay
-          </Link>
-        </div>
-      </div>
-
+      <SaleBanner />
       <Categories />
       <Feedback />
     </section>
@@ -78,39 +55,30 @@ const BestProducts = () => {
         Sản phẩm nổi bật
       </h3>
 
-      <Carousel className="overflow-hidden">
+      <Carousel >
         <CarouselContent>
           {topProducts.map((item, index) => (
             <CarouselItem
               key={index}
-              className="basis-1/2 md:basis-1/2 lg:basis-1/5"
+              className="basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5"
             >
-              <Card className="relative mt-14 overflow-visible rounded-3xl text-center">
-                <img src={item.image} alt="image" className="h-48 w-full" />
+              <Card className="rounded-2xl text-center p-2">
+                <img src={item.image} alt="image" className="h-24 md:h-48 w-full" />
+                <p className="mt-4 text-sm md:text-lg">{item.name}</p>
 
-                <CardContent className="mt-4">
-                  <p>{item.name}</p>
-                </CardContent>
-
-                <span className="flex items-center justify-center">
+                <span>
                   {Array.from({ length: item.stars }, (_, i) => {
                     return (
                       <StarIcon
                         key={i}
-                        className="size-4 fill-orange-500 text-orange-500"
+                        className="size-4 inline fill-orange-500 text-orange-500"
                       />
                     )
                   })}
                 </span>
 
-                <CardHeader>
-                  <CardDescription className="line-through">
-                    {item.basePrice}
-                  </CardDescription>
-                  <CardDescription className="font-bold text-primary">
-                    {item.price}
-                  </CardDescription>
-                </CardHeader>
+                <p className="line-through mt-3 text-sm md:text-lg">{item.basePrice}</p>
+                <strong className="font-bold text-primary text-sm md:text-lg"> {item.price}</strong>
               </Card>
             </CarouselItem>
           ))}
@@ -131,47 +99,41 @@ const Categories = () => {
 
           <article className="flex flex-col md:flex-row">
             <div
-              className="my-2 w-80 rounded-xl bg-cover bg-center"
+              className="hidden md:block my-2 md:min-w-64 xl:min-w-80 rounded-xl bg-cover bg-center"
               style={{ backgroundImage: `url("${cate.banner}")` }}
-            ></div>
+            />
 
-            <Carousel className="w-full">
+            <div
+              className="md:hidden my-2 w-full h-80 rounded-xl bg-cover bg-center"
+              style={{ backgroundImage: `url("${cate.smBanner}")` }}
+            />
+
+            <Carousel>
               <CarouselContent>
                 {cate.items.map((item, index) => (
                   <CarouselItem
                     key={index}
-                    className="basis-full py-2 md:basis-1/2 lg:basis-1/4"
+                    className="basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5"
                   >
-                    <Card className="text-center hover:shadow-xl">
+                    <Card className="rounded-2xl text-center">
                       <img
                         src={item.image}
                         alt="image"
-                        className="h-48 w-full"
+                        className="h-24 md:h-48 w-full"
                       />
-
-                      <CardContent className="mt-2">
-                        <p>{item.name}</p>
-                      </CardContent>
-
-                      <span className="flex items-center justify-center">
+                      <p className="mt-4 4 text-sm md:text-lg">{item.name}</p>
+                      <span>
                         {Array.from({ length: item.stars }, (_, i) => {
                           return (
                             <StarIcon
                               key={i}
-                              className="size-4 fill-orange-500 text-orange-500"
+                              className="size-4 fill-orange-500 inline text-orange-500"
                             />
                           )
                         })}
                       </span>
-
-                      <CardHeader className="py-3">
-                        <CardDescription className="line-through">
-                          {item.basePrice}
-                        </CardDescription>
-                        <CardDescription className="text-xl font-bold">
-                          {item.price}
-                        </CardDescription>
-                      </CardHeader>
+                      <p className="line-through mt-3 text-sm md:text-lg">{item.basePrice}</p>
+                      <strong className="font-bold text-primary text-sm md:text-lg"> {item.price}</strong>
                     </Card>
                   </CarouselItem>
                 ))}
@@ -231,4 +193,23 @@ const Feedback = () => {
       </Carousel>
     </div>
   )
+}
+
+const SaleBanner = () => {
+  return <div
+    className="size-full rounded bg-cover bg-center"
+    style={{ backgroundImage: `url(/banner.webp)` }}
+  >
+    <div className="container p-10 text-center text-primary-foreground">
+      <p className="text-lg">Mua hàng dễ dàng</p>
+      <h3 className="mb-5 text-2xl">Không cần Đến Shop</h3>
+
+      <Link
+        href="/contact"
+        className="my-10 rounded-lg border bg-border px-4 py-2 text-primary"
+      >
+        Liên hệ ngay
+      </Link>
+    </div>
+  </div>
 }
