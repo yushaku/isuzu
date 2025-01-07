@@ -10,6 +10,14 @@ const nextConfig = {
         protocol: "https",
         hostname: "makita.com.vn",
       },
+      {
+        protocol: "https",
+        hostname: "resize.sudospaces.com",
+      },
+      {
+        protocol: "https",
+        hostname: "sudospaces.com",
+      },
     ],
   },
 }
