@@ -2,13 +2,16 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { AlignJustify, SidebarClose, X } from "lucide-react"
+import { AlignJustify, Moon, SidebarClose, Sun, X } from "lucide-react"
+import { useTheme } from "next-themes"
 
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 
 import { Icons } from "./icons"
+import { ThemeToggle } from "./theme-toggle"
 import { Button } from "./ui/button"
+import { Switch } from "./ui/switch"
 
 export function SiteHeader() {
   return (
@@ -44,6 +47,11 @@ export function SiteHeader() {
 
 const MobleMenu = () => {
   const [toggle, setToggle] = useState(false)
+  const { setTheme, theme } = useTheme()
+  console.log({
+    theme,
+  })
+
   const styled = toggle ? "right-0 top-0" : "-right-full top-0"
 
   return (
@@ -90,6 +98,14 @@ const MobleMenu = () => {
               )
           )}
         </nav>
+
+        <span className="mx-auto mt-10 flex gap-4">
+          <Sun className="size-5" />
+          <Switch
+            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+          />
+          <Moon className="size-5" />
+        </span>
       </div>
     </div>
   )
