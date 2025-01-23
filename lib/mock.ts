@@ -3,29 +3,36 @@ export const feedbacks = [
     desc: "PGĐ Công ty CP Kiến Trúc Xây Dựng In & Out",
     name: "Ngô Vũ Phong",
     content:
-      "Tôi rất hài lòng về chế độ hậu mãi ở Anh Khoa Phát. Sừa chữa được đa dạng các loại máy, tiết kiệm tối đa thời gian cho khách hàng. Nhân viên nhiệt tình, niềm nở. Vì thế Anh Khoa Phát luôn là lựa chọn hàng đầu của tôi.",
+      "Tôi rất hài lòng về chế độ hậu mãi ở Anh Khoa Phát. Sửa chữa được đa dạng các loại máy, tiết kiệm tối đa thời gian cho khách hàng. Nhân viên nhiệt tình, niềm nở. Vì thế Anh Khoa Phát luôn là lựa chọn hàng đầu của tôi.",
     avata: "https://sudospaces.com/phonglien-vn/2021/07/pgd-in-out-small.jpg",
   },
   {
-    desc: "PGĐ Công ty CP Kiến Trúc Xây Dựng In & Out",
-    name: "Ngô Vũ Phong",
+    desc: "CEO Công ty TNHH Dịch Vụ Số Hoàng Gia",
+    name: "Trần Minh Hoàng",
     content:
-      "Tôi rất hài lòng về chế độ hậu mãi ở Anh Khoa Phát. Sừa chữa được đa dạng các loại máy, tiết kiệm tối đa thời gian cho khách hàng. Nhân viên nhiệt tình, niềm nở. Vì thế Anh Khoa Phát luôn là lựa chọn hàng đầu của tôi.",
-    avata: "https://sudospaces.com/phonglien-vn/2021/07/pgd-in-out-small.jpg",
+      "Chất lượng dịch vụ tại Anh Khoa Phát rất tuyệt vời. Từ khâu tư vấn đến hậu mãi đều rất chuyên nghiệp. Đội ngũ kỹ thuật viên có tay nghề cao, tôi luôn yên tâm khi sử dụng dịch vụ tại đây.",
+    avata: "https://example.com/avatars/hoang-ceo.jpg",
   },
   {
-    desc: "PGĐ Công ty CP Kiến Trúc Xây Dựng In & Out",
-    name: "Ngô Vũ Phong",
+    desc: "Trưởng phòng IT Công ty CP Phát Triển Toàn Cầu",
+    name: "Lê Thị Hồng Nhung",
     content:
-      "Tôi rất hài lòng về chế độ hậu mãi ở Anh Khoa Phát. Sừa chữa được đa dạng các loại máy, tiết kiệm tối đa thời gian cho khách hàng. Nhân viên nhiệt tình, niềm nở. Vì thế Anh Khoa Phát luôn là lựa chọn hàng đầu của tôi.",
-    avata: "https://sudospaces.com/phonglien-vn/2021/07/pgd-in-out-small.jpg",
+      "Dịch vụ sửa chữa tại Anh Khoa Phát rất nhanh chóng và hiệu quả. Nhân viên thân thiện, luôn hỗ trợ tận tình. Tôi sẽ giới thiệu dịch vụ này đến các đối tác của mình.",
+    avata: "https://example.com/avatars/nhung-it.jpg",
   },
   {
-    desc: "PGĐ Công ty CP Kiến Trúc Xây Dựng In & Out",
-    name: "Ngô Vũ Phong",
+    desc: "Giám đốc Kinh doanh Công ty TNHH GreenTech",
+    name: "Nguyễn Văn An",
     content:
-      "Tôi rất hài lòng về chế độ hậu mãi ở Anh Khoa Phát. Sừa chữa được đa dạng các loại máy, tiết kiệm tối đa thời gian cho khách hàng. Nhân viên nhiệt tình, niềm nở. Vì thế Anh Khoa Phát luôn là lựa chọn hàng đầu của tôi.",
-    avata: "https://sudospaces.com/phonglien-vn/2021/07/pgd-in-out-small.jpg",
+      "Tôi rất ấn tượng với sự chuyên nghiệp của Anh Khoa Phát. Thiết bị sau sửa chữa hoạt động tốt, giá cả hợp lý. Đây chắc chắn là đối tác đáng tin cậy của công ty chúng tôi.",
+    avata: "https://example.com/avatars/van-an.jpg",
+  },
+  {
+    desc: "Chủ cửa hàng thiết bị văn phòng Đại Phát",
+    name: "Phạm Thanh Tùng",
+    content:
+      "Tôi đã sử dụng dịch vụ của Anh Khoa Phát nhiều năm và chưa bao giờ thất vọng. Nhân viên kỹ thuật làm việc rất có tâm, luôn giải thích rõ ràng các vấn đề kỹ thuật. Rất đáng để hợp tác lâu dài.",
+    avata: "https://example.com/avatars/thanh-tung.jpg",
   },
 ]
 
@@ -75,8 +82,10 @@ export const topProducts = [
 export const categories = [
   {
     title: "Makita",
-    banner: "https://sudospaces.com/phonglien-vn/2021/07/may-khoan-bat-vit-makita.png",
-    smBanner: "https://sudospaces.com/phonglien-vn/2021/07/may-khoan-bat-vit-makita.png",
+    banner:
+      "https://sudospaces.com/phonglien-vn/2021/07/may-khoan-bat-vit-makita.png",
+    smBanner:
+      "https://sudospaces.com/phonglien-vn/2021/07/may-khoan-bat-vit-makita.png",
     items: [
       {
         name: "Máy mài góc CT trượt MAKITA - 9553NB (100MM-710W)",
@@ -122,7 +131,8 @@ export const categories = [
   },
   {
     title: "DCK",
-    smBanner: "https://sudospaces.com/phonglien-vn/2021/10/may-cong-cu-dck-chinh-hang-gia-tot-4.png",
+    smBanner:
+      "https://sudospaces.com/phonglien-vn/2021/10/may-cong-cu-dck-chinh-hang-gia-tot-4.png",
     banner:
       "https://sudospaces.com/phonglien-vn/2024/05/banner-home-500x750-dck.png",
     items: [
@@ -171,7 +181,8 @@ export const categories = [
   {
     title: "BOSCH",
     banner: "https://sudospaces.com/phonglien-vn/2023/10/banner-bosch.jpg",
-    smBanner: "https://sudospaces.com/phonglien-vn/2021/07/banner-option-bosch.png",
+    smBanner:
+      "https://sudospaces.com/phonglien-vn/2021/07/banner-option-bosch.png",
     items: [
       {
         name: "Máy mài góc CT trượt MAKITA - 9553NB (100MM-710W)",

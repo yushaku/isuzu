@@ -45,5 +45,10 @@ export const siteConfig = {
     twitter: "https://twitter.com/shadcn",
     github: "https://github.com/shadcn/ui",
     docs: "https://ui.shadcn.com",
+    phone: "0333.666.999",
   },
+}
+
+export const PUBLIC_KEYS = {
+  BUILDER: "1d386f1910ac419fadff2e315e40cf2b",
 }

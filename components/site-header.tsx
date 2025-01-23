@@ -2,14 +2,13 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { AlignJustify, Moon, SidebarClose, Sun, X } from "lucide-react"
+import { AlignJustify, Moon, Sun, X } from "lucide-react"
 import { useTheme } from "next-themes"
 
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 
 import { Icons } from "./icons"
-import { ThemeToggle } from "./theme-toggle"
 import { Button } from "./ui/button"
 import { Switch } from "./ui/switch"
 
@@ -20,7 +19,7 @@ export function SiteHeader() {
         <article className="flex items-center justify-between gap-6 md:gap-10 lg:justify-start">
           <Link href="/" className="flex items-center space-x-2">
             <Icons.logo className="size-6" />
-            <span className="inline-block font-bold">{siteConfig.name}</span>
+            <h1 className="inline-block font-bold">{siteConfig.name}</h1>
           </Link>
 
           <nav className="hidden gap-6 md:flex">
@@ -48,10 +47,6 @@ export function SiteHeader() {
 const MobleMenu = () => {
   const [toggle, setToggle] = useState(false)
   const { setTheme, theme } = useTheme()
-  console.log({
-    theme,
-  })
-
   const styled = toggle ? "right-0 top-0" : "-right-full top-0"
 
   return (

@@ -1,8 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 
 import Link from "next/link"
+import { Product } from "@/types"
+import { builder } from "@builder.io/sdk"
 import { StarIcon } from "lucide-react"
 
+import { PUBLIC_KEYS } from "@/config/site"
 import { categories, feedbacks, topProducts } from "@/lib/mock"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import {
@@ -25,7 +28,16 @@ const images = [
   "/40Vmax.png",
 ]
 
-export default function IndexPage() {
+builder.init(PUBLIC_KEYS.BUILDER)
+
+export default async function IndexPage() {
+  const specialProducts = (await builder.getAll("product-details", {
+    prerender: false,
+    query: {
+      // "data.isSpecial": true,
+    },
+  })) as any
+
   return (
     <section className="grid items-center gap-6 overflow-hidden pb-8">
       <Carousel className="w-full">
@@ -42,7 +54,7 @@ export default function IndexPage() {
       </Carousel>
 
       <Socials />
-      <BestProducts />
+      <BestProducts specialProducts={specialProducts} />
       <SaleBanner />
       <Categories />
       <Feedback />
@@ -50,7 +62,11 @@ export default function IndexPage() {
   )
 }
 
-const BestProducts = () => {
+const BestProducts = ({
+  specialProducts,
+}: {
+  specialProducts: Array<Product>
+}) => {
   return (
     <div className="container p-4 lg:py-10">
       <h3 className="mb-5 mt-10 text-left text-3xl font-bold text-primary md:text-center">
@@ -59,38 +75,25 @@ const BestProducts = () => {
 
       <Carousel>
         <CarouselContent>
-          {topProducts.map((item, index) => (
+          {specialProducts.map((item, index) => (
             <CarouselItem
               key={index}
               className="basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5"
             >
-              <Card className="rounded-2xl p-2 text-center">
-                <img
-                  src={item.image}
-                  alt="image"
-                  className="h-24 w-full md:h-48"
-                />
-                <p className="mt-4 text-sm md:text-lg">{item.name}</p>
+              <Link href={`/products/${item.data.alias}`}>
+                <Card className="rounded-2xl p-2 text-center">
+                  <img
+                    src={item.data.images[0].image}
+                    alt={item.data.images[0].alt}
+                    className="h-24 w-full md:h-48"
+                  />
+                  <p className="mt-4 text-sm md:text-lg">{item.data.name}</p>
 
-                <span>
-                  {Array.from({ length: item.stars }, (_, i) => {
-                    return (
-                      <StarIcon
-                        key={i}
-                        className="inline size-4 fill-orange-500 text-orange-500"
-                      />
-                    )
-                  })}
-                </span>
-
-                <p className="mt-3 text-sm line-through md:text-lg">
-                  {item.basePrice}
-                </p>
-                <strong className="text-sm font-bold text-primary md:text-lg">
-                  {" "}
-                  {item.price}
-                </strong>
-              </Card>
+                  <p className="px-auto mt-3 w-full rounded-lg border border-primary py-2 text-sm text-primary md:text-lg">
+                    Liên hệ
+                  </p>
+                </Card>
+              </Link>
             </CarouselItem>
           ))}
         </CarouselContent>
@@ -143,13 +146,7 @@ const Categories = () => {
                           )
                         })}
                       </span>
-                      <p className="mt-3 text-sm line-through md:text-lg">
-                        {item.basePrice}
-                      </p>
-                      <strong className="text-sm font-bold text-primary md:text-lg">
-                        {" "}
-                        {item.price}
-                      </strong>
+                      <p className="mt-3 text-sm md:text-lg">Liên hệ</p>
                     </Card>
                   </CarouselItem>
                 ))}
