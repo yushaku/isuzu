@@ -2,13 +2,15 @@ import React from "react"
 import Link from "next/link"
 import { Phone } from "lucide-react"
 
+import { siteConfig } from "@/config/site"
+
 import { Icons } from "./icons"
 
 export const socials = [
   {
     Logo: Phone,
     title: "phone",
-    link: "tel:+0973688261",
+    link: `tel:+${siteConfig.links.phone}`,
   },
   {
     Logo: Icons.facebook,

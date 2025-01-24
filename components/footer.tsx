@@ -1,6 +1,7 @@
 import React from "react"
-import Image from "next/image"
 import Link from "next/link"
+
+import { siteConfig } from "@/config/site"
 
 import { Icons } from "./icons"
 
@@ -16,21 +17,22 @@ export const Footer = () => {
             <ul className="space-y-4">
               <li>
                 <p className="font-medium text-secondary-foreground">
-                  CÔNG TY TNHH NHẬP KHẨU THƯƠNG MẠI VÀ DỊCH VỤ ANH KHOA PHÁT
+                  CÔNG TY TNHH XUẤT NHẬP KHẨU THƯƠNG MẠI VÀ DỊCH VỤ ANH KHOA
+                  PHÁT
                 </p>
                 <p>
                   Địa chỉ: Số 70 đường Huyền Quang, Phường Ninh Xá, Thàng phố
                   Bắc Ninh, Tỉnh Bắc Ninh
                 </p>
                 <p>Tư Vấn Bán Hàng (8h - 18h hằng ngày)</p>
-                <p>Hotline: 0999.666.888</p>
+                <p>Hotline: {siteConfig.links.phone}</p>
               </li>
               <li>
                 <p className="font-medium text-secondary-foreground">
                   Chăm sóc khách hàng
                 </p>
                 <p>Email: anhhoaphat@gmail.com</p>
-                <p>Hotline: 0999.666.888</p>
+                <p>Hotline: {siteConfig.links.phone}</p>
               </li>
             </ul>
           </div>
@@ -39,8 +41,11 @@ export const Footer = () => {
             <h3 className="mb-2 text-lg font-bold text-primary">Liên Hệ</h3>
             <p>
               <span className="font-bold">Phone:</span>{" "}
-              <a href="tel:02743628338" className="text-secondary-foreground">
-                0274.362.8338
+              <a
+                href={`tel:${siteConfig.links.phone}`}
+                className="text-secondary-foreground"
+              >
+                {siteConfig.links.phone}
               </a>
             </p>
             <p>

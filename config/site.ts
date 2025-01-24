@@ -45,7 +45,7 @@ export const siteConfig = {
     twitter: "https://twitter.com/shadcn",
     github: "https://github.com/shadcn/ui",
     docs: "https://ui.shadcn.com",
-    phone: "0333.666.999",
+    phone: "0868573366",
   },
 }
 
