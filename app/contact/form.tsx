@@ -98,7 +98,7 @@ export function ContactForm() {
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <Textarea placeholder="Nhập nội dung" {...field} />
+                <Textarea rows={6} placeholder="Nhập nội dung" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>

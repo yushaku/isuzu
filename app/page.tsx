@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 import Link from "next/link"
-import { Product } from "@/types"
+import { Collection, Product } from "@/types"
 import { builder } from "@builder.io/sdk"
 import { StarIcon } from "lucide-react"
 
@@ -32,11 +32,16 @@ builder.init(PUBLIC_KEYS.BUILDER)
 
 export default async function IndexPage() {
   const specialProducts = (await builder.getAll("product-details", {
-    prerender: false,
     query: {
       // "data.isSpecial": true,
     },
   })) as any
+
+  const collections = (await builder.getAll("collections", {
+    query: {
+      // "data.isSpecial": true,
+    },
+  })) as Collection[]
 
   return (
     <section className="grid items-center gap-6 overflow-hidden pb-8">
@@ -55,9 +60,19 @@ export default async function IndexPage() {
 
       <Socials />
       <BestProducts specialProducts={specialProducts} />
+      <CateList data={collections} />
       <SaleBanner />
       <Categories />
       <Feedback />
+
+      <div className="container mt-10">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d587.1487605741976!2d106.0596964422926!3d21.177419376213198!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31350eabc17de5f3%3A0xfeb6d4871fb7163b!2zxJAuIE5nLiBHaWEgVOG7sS83MCBIdXnhu4FuIFF1YW5nLCBLaHUgxJDhu40gWMOhLCBC4bqvYyBOaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1737816646775!5m2!1svi!2s"
+          width="100%"
+          height="450"
+          loading="lazy"
+        ></iframe>
+      </div>
     </section>
   )
 }
@@ -70,7 +85,7 @@ const BestProducts = ({
   return (
     <div className="container p-4 lg:py-10">
       <h3 className="mb-5 mt-10 text-left text-3xl font-bold text-primary md:text-center">
-        Sản phẩm nổi bật
+        SẢN PHẨM NỔI BẬT
       </h3>
 
       <Carousel>
@@ -98,6 +113,35 @@ const BestProducts = ({
           ))}
         </CarouselContent>
       </Carousel>
+    </div>
+  )
+}
+
+const CateList = ({ data }: { data: Collection[] }) => {
+  return (
+    <div className="container p-4 lg:py-10">
+      <h3 className="mb-5 mt-10 text-left text-3xl font-bold text-primary md:text-center">
+        DANH MỤC NỔI BẬT
+      </h3>
+
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {data.map((item, index) => (
+          <Link
+            href={`/category/${item.data.alias}`}
+            key={index}
+            className="group w-full cursor-pointer text-center"
+          >
+            <img
+              src={item.data.banner}
+              alt={item.data.name}
+              className="rounded-lg"
+            />
+            <h3 className="text-xl font-bold group-hover:text-primary">
+              {item.data.name}
+            </h3>
+          </Link>
+        ))}
+      </div>
     </div>
   )
 }

@@ -1,0 +1,101 @@
+
+
+{
+  cate: {
+    query: [],
+    folders: [],
+    createdDate: 1737792489534,
+    id: '9f36c628c30a43c7b62599de38936740',
+    name: 'Dụng cụ đo lường',
+    modelId: 'fe5b68c93ed74b749a506d3e3530f247',
+    published: 'published',
+    meta: { kind: 'data', lastPreviewUrl: '' },
+    data: {
+      name: 'Dụng cụ đo lường',
+      banner: 'https://hukan.vn/wp-content/uploads/2024/07/Dan-may-Laser-400x400.jpg',
+      description: '<h4 style="text-align: center;"><a href="https://hukan.vn/product-category/dung-cu-do-luong/" rel="noopener noreferrer" target="_blank"><strong>Dụng cụ đo lường</strong></a></h4><p><br></p>',
+      alias: 'dung-cu-do-luong'
+    },
+    variations: {},
+    lastUpdated: 1737794173329,
+    firstPublished: 1737792508913,
+    testRatio: 1,
+    createdBy: 'pFSJkX4hjTetx4iloNgdLOHgOsA3',
+    lastUpdatedBy: 'pFSJkX4hjTetx4iloNgdLOHgOsA3',
+    rev: '2boa6e1hg6'
+  },
+  products: [
+    {
+      query: [],
+      folders: [],
+      createdDate: 1737649006761,
+      id: '575349394c944cb0bbd83bb7f7f1cec6',
+      name: 'HD26Y',
+      modelId: 'bad52b0610374d9791125e319d6f6c75',
+      published: 'published',
+      meta: [Object],
+      data: [Object],
+      variations: {},
+      lastUpdated: 1737655205164,
+      firstPublished: 1737649055965,
+      testRatio: 1,
+      createdBy: 'pFSJkX4hjTetx4iloNgdLOHgOsA3',
+      lastUpdatedBy: 'pFSJkX4hjTetx4iloNgdLOHgOsA3',
+      rev: '24ahiua4v3v'
+    },
+    {
+      query: [],
+      folders: [],
+      createdDate: 1737648857517,
+      id: 'f605206894664a4ea001161b15e7b38b',
+      name: 'HW850A',
+      modelId: 'bad52b0610374d9791125e319d6f6c75',
+      published: 'published',
+      meta: [Object],
+      data: [Object],
+      variations: {},
+      lastUpdated: 1737654203453,
+      firstPublished: 1737648912887,
+      testRatio: 1,
+      createdBy: 'pFSJkX4hjTetx4iloNgdLOHgOsA3',
+      lastUpdatedBy: 'pFSJkX4hjTetx4iloNgdLOHgOsA3',
+      rev: '24ahiua4v3v'
+    },
+    {
+      query: [],
+      folders: [],
+      createdDate: 1737648746532,
+      id: 'ab86725316184f90bda171329c2aef3c',
+      name: 'HW550A',
+      modelId: 'bad52b0610374d9791125e319d6f6c75',
+      published: 'published',
+      meta: [Object],
+      data: [Object],
+      variations: {},
+      lastUpdated: 1737654341504,
+      firstPublished: 1737648849668,
+      testRatio: 1,
+      createdBy: 'pFSJkX4hjTetx4iloNgdLOHgOsA3',
+      lastUpdatedBy: 'pFSJkX4hjTetx4iloNgdLOHgOsA3',
+      rev: '24ahiua4v3v'
+    },
+    {
+      query: [],
+      folders: [],
+      createdDate: 1737648363184,
+      id: '67028511384246428b62ac3928432b26',
+      name: 'HW400A',
+      modelId: 'bad52b0610374d9791125e319d6f6c75',
+      published: 'published',
+      meta: [Object],
+      data: [Object],
+      variations: {},
+      lastUpdated: 1737655212907,
+      firstPublished: 1737648735159,
+      testRatio: 1,
+      createdBy: 'pFSJkX4hjTetx4iloNgdLOHgOsA3',
+      lastUpdatedBy: 'pFSJkX4hjTetx4iloNgdLOHgOsA3',
+      rev: '24ahiua4v3v'
+    }
+  ]
+}

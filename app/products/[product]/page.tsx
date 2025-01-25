@@ -14,7 +14,6 @@ interface PageProps {
 }
 export default async function Page(props: PageProps) {
   const productDetails = await builder.getAll("product-details", {
-    prerender: false,
     query: {
       "data.alias": props?.params?.product,
     },

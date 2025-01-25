@@ -12,6 +12,22 @@ export type Product = {
       id: string
       model: string
     }
+    specifications: Array<{
+      title: string
+      value: string
+    }>
+  }
+  lastUpdated: number
+  firstPublished: number
+}
+
+export type Collection = {
+  id: string
+  data: {
+    name: string
+    alias: string
+    banner: string
+    description: string
   }
   lastUpdated: number
   firstPublished: number

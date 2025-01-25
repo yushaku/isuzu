@@ -13,6 +13,8 @@ type Params = {
 
 export const ProductDetails = ({ product }: Params) => {
   const data = product.data
+  console.log(data)
+
   const [image, setImage] = useState<ProductImage>(data.images[0])
 
   return (
@@ -50,38 +52,16 @@ export const ProductDetails = ({ product }: Params) => {
 
         {/* Right Section - Details */}
         <div className="mt-6 w-full lg:mt-0 lg:w-1/2 lg:pl-8">
-          <h1 className="mb-4 text-2xl font-bold">
-            Máy mài công tắc đuôi HK-AGX1080S
-          </h1>
+          <h1 className="mb-4 text-2xl font-bold">{data.name}</h1>
 
           <div className="space-y-2">
-            <p>
-              <span className="font-semibold">Mã sản phẩm:</span> HK-AGX1080S
-            </p>
-            <p>
-              <span className="font-semibold">Điện áp:</span> 220V, 50-60Hz
-            </p>
-            <p>
-              <span className="font-semibold">Công suất:</span> 800W
-            </p>
-            <p>
-              <span className="font-semibold">Tốc độ không tải:</span> 11000 V/p
-            </p>
-            <p>
-              <span className="font-semibold">Đường kính đĩa:</span> 100mm
-            </p>
-            <p>
-              <span className="font-semibold">Trục chính:</span> M10
-            </p>
-            <p>
-              <span className="font-semibold">Dây điện dài:</span> 3m
-            </p>
-            <p>
-              <span className="font-semibold">Trọng lượng:</span> 1.7kg
-            </p>
-            <p>
-              <span className="font-semibold">Bảo hành:</span> 6 tháng
-            </p>
+            {data.specifications.map(({ title, value }, index) => {
+              return (
+                <p key={index}>
+                  <span className="font-semibold">{title}</span> {value}
+                </p>
+              )
+            })}
             <p>
               <span className="font-semibold">Nhận hàng:</span> Kiểm tra – Thanh
               Toán

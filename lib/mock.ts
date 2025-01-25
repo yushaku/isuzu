@@ -1,17 +1,17 @@
 export const feedbacks = [
   {
-    desc: "PGĐ Công ty CP Kiến Trúc Xây Dựng In & Out",
-    name: "Ngô Vũ Phong",
-    content:
-      "Tôi rất hài lòng về chế độ hậu mãi ở Anh Khoa Phát. Sửa chữa được đa dạng các loại máy, tiết kiệm tối đa thời gian cho khách hàng. Nhân viên nhiệt tình, niềm nở. Vì thế Anh Khoa Phát luôn là lựa chọn hàng đầu của tôi.",
-    avata: "https://sudospaces.com/phonglien-vn/2021/07/pgd-in-out-small.jpg",
-  },
-  {
     desc: "CEO Công ty TNHH Dịch Vụ Số Hoàng Gia",
     name: "Trần Minh Hoàng",
     content:
       "Chất lượng dịch vụ tại Anh Khoa Phát rất tuyệt vời. Từ khâu tư vấn đến hậu mãi đều rất chuyên nghiệp. Đội ngũ kỹ thuật viên có tay nghề cao, tôi luôn yên tâm khi sử dụng dịch vụ tại đây.",
     avata: "https://example.com/avatars/hoang-ceo.jpg",
+  },
+  {
+    desc: "PGĐ Công ty CP Kiến Trúc Xây Dựng In & Out",
+    name: "Ngô Vũ Phong",
+    content:
+      "Tôi rất hài lòng về chế độ hậu mãi ở Anh Khoa Phát. Sửa chữa được đa dạng các loại máy, tiết kiệm tối đa thời gian cho khách hàng. Nhân viên nhiệt tình, niềm nở. Vì thế Anh Khoa Phát luôn là lựa chọn hàng đầu của tôi.",
+    avata: "https://sudospaces.com/phonglien-vn/2021/07/pgd-in-out-small.jpg",
   },
   {
     desc: "Trưởng phòng IT Công ty CP Phát Triển Toàn Cầu",
