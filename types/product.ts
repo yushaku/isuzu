@@ -6,6 +6,7 @@ export type Product = {
   data: {
     name: string
     description: string
+    isSpecial: boolean
     images: Array<ProductImage>
     alias: string
     collection: {
@@ -27,6 +28,7 @@ export type Collection = {
     name: string
     alias: string
     banner: string
+    sideBanner: string
     description: string
   }
   lastUpdated: number

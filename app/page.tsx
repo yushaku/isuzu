@@ -6,8 +6,10 @@ import { builder } from "@builder.io/sdk"
 import { StarIcon } from "lucide-react"
 
 import { PUBLIC_KEYS } from "@/config/site"
-import { categories, feedbacks, topProducts } from "@/lib/mock"
+import { feedbacks } from "@/lib/mock"
+import { cn } from "@/lib/utils"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Button } from "@/components/ui/button"
 import {
   Card,
   CardContent,
@@ -62,7 +64,7 @@ export default async function IndexPage() {
       <BestProducts specialProducts={specialProducts} />
       <CateList data={collections} />
       <SaleBanner />
-      <Categories />
+      <Categories collections={collections} products={specialProducts} />
       <Feedback />
 
       <div className="container mt-10">
@@ -90,27 +92,29 @@ const BestProducts = ({
 
       <Carousel>
         <CarouselContent>
-          {specialProducts.map((item, index) => (
-            <CarouselItem
-              key={index}
-              className="basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5"
-            >
-              <Link href={`/products/${item.data.alias}`}>
-                <Card className="rounded-2xl p-2 text-center">
-                  <img
-                    src={item.data.images[0].image}
-                    alt={item.data.images[0].alt}
-                    className="h-24 w-full md:h-48"
-                  />
-                  <p className="mt-4 text-sm md:text-lg">{item.data.name}</p>
+          {specialProducts
+            .filter((item) => item.data.isSpecial)
+            .map((item, index) => (
+              <CarouselItem
+                key={index}
+                className="basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5"
+              >
+                <Link href={`/products/${item.data.alias}`}>
+                  <Card className="rounded-2xl p-2 text-center">
+                    <img
+                      src={item.data.images[0].image}
+                      alt={item.data.images[0].alt}
+                      className="h-24 w-full md:h-48"
+                    />
+                    <p className="mt-4 text-sm md:text-lg">{item.data.name}</p>
 
-                  <p className="px-auto mt-3 w-full rounded-lg border border-primary py-2 text-sm text-primary md:text-lg">
-                    Liên hệ
-                  </p>
-                </Card>
-              </Link>
-            </CarouselItem>
-          ))}
+                    <p className="px-auto mt-3 w-full rounded-lg border border-primary py-2 text-sm text-primary md:text-lg">
+                      Liên hệ
+                    </p>
+                  </Card>
+                </Link>
+              </CarouselItem>
+            ))}
         </CarouselContent>
       </Carousel>
     </div>
@@ -134,7 +138,7 @@ const CateList = ({ data }: { data: Collection[] }) => {
             <img
               src={item.data.banner}
               alt={item.data.name}
-              className="rounded-lg"
+              className="w-full rounded-lg"
             />
             <h3 className="text-xl font-bold group-hover:text-primary">
               {item.data.name}
@@ -146,52 +150,67 @@ const CateList = ({ data }: { data: Collection[] }) => {
   )
 }
 
-const Categories = () => {
+const Categories = ({
+  collections,
+  products,
+}: {
+  collections: Collection[]
+  products: Product[]
+}) => {
+  const categories = collections.map((cate) => ({
+    ...cate,
+    products: products.filter(
+      (product) => product.data.collection.id === cate.id
+    ),
+  }))
+
   return (
     <div className="container py-10">
       {categories.map((cate, index) => (
-        <div key={index} className="mt-10">
-          <h4 className="text-center text-2xl font-bold text-primary">
-            {cate.title}
+        <div
+          key={index}
+          className={cn("mt-10", cate.products.length === 0 && "hidden")}
+        >
+          <h4 className="mb-5 text-center text-lg font-bold text-primary">
+            {cate.data.name}
           </h4>
 
           <article className="flex flex-col md:flex-row">
             <div
               className="my-2 hidden rounded-xl bg-cover bg-center md:block md:min-w-64 xl:min-w-80"
-              style={{ backgroundImage: `url("${cate.banner}")` }}
+              style={{ backgroundImage: `url("${cate.data.sideBanner}")` }}
             />
 
             <div
               className="my-2 h-80 w-full rounded-xl bg-cover bg-center md:hidden"
-              style={{ backgroundImage: `url("${cate.smBanner}")` }}
+              style={{ backgroundImage: `url("${cate.data.sideBanner}")` }}
             />
 
-            <Carousel>
+            <Carousel className="flex-1">
               <CarouselContent>
-                {cate.items.map((item, index) => (
+                {cate.products.map((item, index) => (
                   <CarouselItem
                     key={index}
-                    className="basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/5"
+                    className="basis-1/2 md:basis-1/3 lg:basis-1/4 xl:basis-1/4"
                   >
-                    <Card className="rounded-2xl text-center">
-                      <img
-                        src={item.image}
-                        alt="image"
-                        className="h-24 w-full md:h-48"
-                      />
-                      <p className="4 mt-4 text-sm md:text-lg">{item.name}</p>
-                      <span>
-                        {Array.from({ length: item.stars }, (_, i) => {
-                          return (
-                            <StarIcon
-                              key={i}
-                              className="inline size-4 fill-orange-500 text-orange-500"
-                            />
-                          )
-                        })}
-                      </span>
-                      <p className="mt-3 text-sm md:text-lg">Liên hệ</p>
-                    </Card>
+                    <Link
+                      href={`/products/${item.data.alias}`}
+                      className="rounded-2xl text-center"
+                    >
+                      <Card>
+                        <img
+                          src={item.data.images[0].image}
+                          alt="image"
+                          className="h-24 w-full md:h-48"
+                        />
+                        <p className="4 mt-4 line-clamp-2 text-sm">
+                          {item.data.name}
+                        </p>
+                        <Button className="my-3 text-sm md:text-lg">
+                          Liên hệ
+                        </Button>
+                      </Card>
+                    </Link>
                   </CarouselItem>
                 ))}
               </CarouselContent>
