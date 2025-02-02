@@ -10,16 +10,13 @@ import { feedbacks } from "@/lib/mock"
 import { cn } from "@/lib/utils"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-} from "@/components/ui/card"
+import { Card } from "@/components/ui/card"
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
 } from "@/components/ui/carousel"
 import { Socials } from "@/components/socials"
 
@@ -47,12 +44,14 @@ export default async function IndexPage() {
 
   return (
     <section className="grid items-center gap-6 overflow-hidden pb-8">
-      <Carousel className="w-full">
+      <Carousel className="container w-full">
+        <CarouselPrevious />
+        <CarouselNext />
         <CarouselContent>
           {images.map((src, index) => (
             <CarouselItem key={index}>
               <div
-                className="h-[70dvh] w-full rounded-lg bg-cover bg-center"
+                className="h-[60dvh] w-full rounded-lg bg-cover bg-center"
                 style={{ backgroundImage: `url(${src})` }}
               ></div>
             </CarouselItem>
@@ -86,12 +85,14 @@ const BestProducts = ({
   specialProducts: Array<Product>
 }) => {
   return (
-    <div className="container p-4 lg:py-10">
+    <div className="container overflow-hidden p-4 lg:py-10">
       <h3 className="mb-5 mt-10 text-left text-3xl font-bold text-primary md:text-center">
         SẢN PHẨM NỔI BẬT
       </h3>
 
       <Carousel>
+        <CarouselPrevious />
+        <CarouselNext />
         <CarouselContent>
           {specialProducts
             .filter((item) => item.data.isSpecial)
@@ -244,23 +245,19 @@ const Feedback = () => {
                   <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
 
-                <CardContent className="mt-14">
-                  <p>{item.content}</p>
-                </CardContent>
+                <p className="mt-14">{item.content}</p>
 
-                <span className="flex items-center justify-center">
-                  <StarIcon className="size-4 fill-orange-500 text-orange-500" />
-                  <StarIcon className="size-4 fill-orange-500 text-orange-500" />
-                  <StarIcon className="size-4 fill-orange-500 text-orange-500" />
-                  <StarIcon className="size-4 fill-orange-500 text-orange-500" />
-                  <StarIcon className="size-4 fill-orange-500 text-orange-500" />
-                </span>
-                <CardHeader>
-                  <CardDescription className="font-bold">
-                    {item.name}
-                  </CardDescription>
-                  <CardDescription>{item.desc}</CardDescription>
-                </CardHeader>
+                <div className="mx-auto my-2 w-full">
+                  <StarIcon className="inline-block size-4 fill-orange-500 text-orange-500" />
+                  <StarIcon className="inline-block size-4 fill-orange-500 text-orange-500" />
+                  <StarIcon className="inline-block size-4 fill-orange-500 text-orange-500" />
+                  <StarIcon className="inline-block size-4 fill-orange-500 text-orange-500" />
+                  <StarIcon className="inline-block size-4 fill-orange-500 text-orange-500" />
+                </div>
+                <h3 className="py-2">
+                  <strong className="text-muted-foreground">{item.name}</strong>
+                  <p className="text-sm text-muted-foreground">{item.desc}</p>
+                </h3>
               </Card>
             </CarouselItem>
           ))}
@@ -304,7 +301,7 @@ const GridProduct = ({ products }: { products: Product[] }) => {
             <img
               src={product.data.images[0].image}
               alt={product.data.name}
-              className="size-48"
+              className="h-48 w-full object-contain"
             />
             <p className="m-4 line-clamp-2">{product.data.name}</p>
             <Button className="mx-2 my-3 w-[90%]">Liên hệ</Button>

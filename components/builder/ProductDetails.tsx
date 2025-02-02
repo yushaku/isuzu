@@ -5,6 +5,10 @@ import React, { useState } from "react"
 import { Product, ProductImage } from "@/types"
 
 import { siteConfig } from "@/config/site"
+
+import "react-photo-view/dist/react-photo-view.css"
+import { PhotoProvider, PhotoView } from "react-photo-view"
+
 import { cn } from "@/lib/utils"
 
 type Params = {
@@ -13,41 +17,45 @@ type Params = {
 
 export const ProductDetails = ({ product }: Params) => {
   const data = product.data
-  console.log(data)
-
   const [image, setImage] = useState<ProductImage>(data.images[0])
 
   return (
     <section className="container">
       <div className="flex flex-wrap p-6 lg:flex-nowrap">
         <div className="w-full lg:w-1/2">
-          <div className="flex justify-center rounded-lg border p-3">
-            <img
-              src={image.image}
-              alt={image.alt}
-              className="size-96 rounded-lg"
-            />
-          </div>
-          <div
-            className={cn("mt-4 flex justify-center space-x-4", {
-              hidden: data.images.length === 1,
-            })}
-          >
-            {data.images.map((src, index) => (
-              <img
-                key={index}
-                src={src.image}
-                alt={src.alt}
-                className={cn(
-                  "size-20 rounded-lg border p-1 opacity-50",
-                  src.image === image.image
-                    ? "border-orange-500 opacity-100"
-                    : ""
-                )}
-                onClick={() => setImage(src)}
-              />
-            ))}
-          </div>
+          <PhotoProvider>
+            <div className="foo">
+              <div className="flex justify-center rounded-lg border p-3">
+                <PhotoView src={image.image}>
+                  <img
+                    src={image.image}
+                    alt={image.alt}
+                    className="h-96 w-full rounded-lg object-contain"
+                  />
+                </PhotoView>
+              </div>
+              <div
+                className={cn("mt-4 flex justify-center space-x-4", {
+                  hidden: data.images.length === 1,
+                })}
+              >
+                {data.images.map((src, index) => (
+                  <img
+                    key={index}
+                    src={src.image}
+                    alt={src.alt}
+                    className={cn(
+                      "size-20 rounded-lg border p-1 opacity-50",
+                      src.image === image.image
+                        ? "border-orange-500 opacity-100"
+                        : ""
+                    )}
+                    onClick={() => setImage(src)}
+                  />
+                ))}
+              </div>
+            </div>
+          </PhotoProvider>
         </div>
 
         {/* Right Section - Details */}
