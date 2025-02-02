@@ -33,7 +33,7 @@ const images = [
 builder.init(PUBLIC_KEYS.BUILDER)
 
 export default async function IndexPage() {
-  const specialProducts = (await builder.getAll("product-details", {
+  const products = (await builder.getAll("product-details", {
     query: {
       // "data.isSpecial": true,
     },
@@ -61,10 +61,11 @@ export default async function IndexPage() {
       </Carousel>
 
       <Socials />
-      <BestProducts specialProducts={specialProducts} />
-      <CateList data={collections} />
+      <BestProducts specialProducts={products} />
+      {/* <CateList data={collections} /> */}
       <SaleBanner />
-      <Categories collections={collections} products={specialProducts} />
+      {/* <Categories collections={collections} products={specialProducts} /> */}
+      <GridProduct products={products} />
       <Feedback />
 
       <div className="container mt-10">
@@ -108,9 +109,7 @@ const BestProducts = ({
                     />
                     <p className="mt-4 text-sm md:text-lg">{item.data.name}</p>
 
-                    <p className="px-auto mt-3 w-full rounded-lg border border-primary py-2 text-sm text-primary md:text-lg">
-                      Liên hệ
-                    </p>
+                    <Button className="mx-2 my-3 w-[90%]">Liên hệ</Button>
                   </Card>
                 </Link>
               </CarouselItem>
@@ -289,5 +288,31 @@ const SaleBanner = () => {
         </Link>
       </div>
     </div>
+  )
+}
+
+const GridProduct = ({ products }: { products: Product[] }) => {
+  return (
+    <section className="container">
+      <div className="grid flex-1 grid-cols-2 gap-4 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
+        {products.map((product, index) => (
+          <Link
+            key={index}
+            href={`/products/${product.data.alias}`}
+            className="flex flex-col items-center justify-center rounded-lg border border-border"
+          >
+            <img
+              src={product.data.images[0].image}
+              alt={product.data.name}
+              className="size-48"
+            />
+            <p className="m-4 line-clamp-2">
+              {product.data.name} Nulla dolor velit adipisicing duis excepteur
+            </p>
+            <Button className="mx-2 my-3 w-[90%]">Liên hệ</Button>
+          </Link>
+        ))}
+      </div>
+    </section>
   )
 }
