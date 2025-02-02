@@ -306,9 +306,7 @@ const GridProduct = ({ products }: { products: Product[] }) => {
               alt={product.data.name}
               className="size-48"
             />
-            <p className="m-4 line-clamp-2">
-              {product.data.name} Nulla dolor velit adipisicing duis excepteur
-            </p>
+            <p className="m-4 line-clamp-2">{product.data.name}</p>
             <Button className="mx-2 my-3 w-[90%]">Liên hệ</Button>
           </Link>
         ))}

@@ -71,7 +71,7 @@ export const ProductDetails = ({ product }: Params) => {
           <div className="mt-6">
             <button className="flex items-center rounded-lg bg-red-500 px-6 py-3 text-lg font-semibold text-white">
               <p className="mr-3 text-lg font-semibold">Liên hệ</p>
-              0333.315.233
+              {siteConfig.links.phone}
             </button>
           </div>
         </div>
