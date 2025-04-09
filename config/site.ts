@@ -3,6 +3,8 @@ export type SiteConfig = typeof siteConfig
 export const siteConfig = {
   name: "Anh Khoa Phat",
   description: "Highquality power tool solutions",
+  keywords: ["power tools", "industrial tools", "machinery", "equipment", "Anh Khoa Phat", "tools Vietnam"],
+  author: "Anh Khoa Phat",
   mainNav: [
     {
       title: "Trang chủ",
@@ -47,6 +49,7 @@ export const siteConfig = {
     docs: "https://ui.shadcn.com",
     phone: "0868573366",
   },
+  url: "https://anhkhoaphat.com",
 }
 
 export const PUBLIC_KEYS = {
