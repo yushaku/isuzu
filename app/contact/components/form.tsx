@@ -1,5 +1,6 @@
 "use client"
 
+import { useState } from "react"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
@@ -32,14 +33,20 @@ const FormSchema = z.object({
 })
 
 export function ContactForm() {
+  const [loading, setLoading] = useState(false)
+
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
       username: "",
+      email: "",
+      phone: "",
+      content: "",
     },
   })
 
   async function onSubmit(data: z.infer<typeof FormSchema>) {
+    setLoading(true)
     try {
       const response = await fetch("/api/send", {
         method: "POST",
@@ -61,6 +68,8 @@ export function ContactForm() {
         description: "Failed to send message. Please try again.",
         variant: "destructive",
       })
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -119,8 +128,8 @@ export function ContactForm() {
           )}
         />
 
-        <Button type="submit" className="w-full">
-          Submit
+        <Button type="submit" className="w-full" disabled={loading}>
+          {loading ? "Sending..." : "Submit"}
         </Button>
       </form>
     </Form>
