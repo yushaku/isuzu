@@ -3,7 +3,14 @@ export type SiteConfig = typeof siteConfig
 export const siteConfig = {
   name: "Anh Khoa Phat",
   description: "Highquality power tool solutions",
-  keywords: ["power tools", "industrial tools", "machinery", "equipment", "Anh Khoa Phat", "tools Vietnam"],
+  keywords: [
+    "power tools",
+    "industrial tools",
+    "machinery",
+    "equipment",
+    "Anh Khoa Phat",
+    "tools Vietnam",
+  ],
   author: "Anh Khoa Phat",
   mainNav: [
     {
@@ -44,10 +51,11 @@ export const siteConfig = {
     },
   ],
   links: {
-    twitter: "https://twitter.com/shadcn",
-    github: "https://github.com/shadcn/ui",
-    docs: "https://ui.shadcn.com",
     phone: "0868573366",
+    email: "anhkhoaphat@gmail.com",
+    zalo: "http://zaloapp.com/qr/p/t29x1oud2sev",
+    facebook:
+      "https://www.facebook.com/profile.php?id=61575534562557&mibextid=LQQJ4d",
   },
   url: "https://anhkhoaphat.com",
 }

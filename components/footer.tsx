@@ -50,7 +50,10 @@ export const Footer = () => {
             </p>
             <p>
               <span className="font-bold">Email:</span>{" "}
-              <a href="fax:02743628339" className="text-secondary-foreground">
+              <a
+                href="anhhoaphat@gmail.com"
+                className="text-secondary-foreground"
+              >
                 anhhoaphat@gmail.com
               </a>
             </p>
