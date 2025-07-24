@@ -4,7 +4,8 @@ export const feedbacks = [
     name: "Trần Minh Hoàng",
     content:
       "Chất lượng dịch vụ tại Anh Khoa Phát rất tuyệt vời. Từ khâu tư vấn đến hậu mãi đều rất chuyên nghiệp. Đội ngũ kỹ thuật viên có tay nghề cao, tôi luôn yên tâm khi sử dụng dịch vụ tại đây.",
-    avata: "https://example.com/avatars/hoang-ceo.jpg",
+    avata:
+      "https://image.vietstock.vn/2016/01/08/Mr-Hoang-VCBS_135382_thumb.JPG",
   },
   {
     desc: "PGĐ Công ty CP Kiến Trúc Xây Dựng In & Out",
@@ -18,21 +19,24 @@ export const feedbacks = [
     name: "Lê Thị Hồng Nhung",
     content:
       "Dịch vụ sửa chữa tại Anh Khoa Phát rất nhanh chóng và hiệu quả. Nhân viên thân thiện, luôn hỗ trợ tận tình. Tôi sẽ giới thiệu dịch vụ này đến các đối tác của mình.",
-    avata: "https://example.com/avatars/nhung-it.jpg",
+    avata:
+      "https://cdn2.fptshop.com.vn/unsafe/1920x0/filters:format(webp):quality(75)/Screenshot_2024_08_08_at_10_09_20_8c4fc5e5fc.png",
   },
   {
     desc: "Giám đốc Kinh doanh Công ty TNHH GreenTech",
     name: "Nguyễn Văn An",
     content:
       "Tôi rất ấn tượng với sự chuyên nghiệp của Anh Khoa Phát. Thiết bị sau sửa chữa hoạt động tốt, giá cả hợp lý. Đây chắc chắn là đối tác đáng tin cậy của công ty chúng tôi.",
-    avata: "https://example.com/avatars/van-an.jpg",
+    avata:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdeMDLGPGfJorwgDCYVl934eIO8qCOPlWanw&s",
   },
   {
     desc: "Chủ cửa hàng thiết bị văn phòng Đại Phát",
     name: "Phạm Thanh Tùng",
     content:
       "Tôi đã sử dụng dịch vụ của Anh Khoa Phát nhiều năm và chưa bao giờ thất vọng. Nhân viên kỹ thuật làm việc rất có tâm, luôn giải thích rõ ràng các vấn đề kỹ thuật. Rất đáng để hợp tác lâu dài.",
-    avata: "https://example.com/avatars/thanh-tung.jpg",
+    avata:
+      "https://kinhtevadubao.vn/stores/news_dataimages/phamoanh/102021/13/11/3909_1.jpg?rt=20211013113911",
   },
 ]
 

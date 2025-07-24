@@ -21,10 +21,10 @@ import {
 import { Socials } from "@/components/socials"
 
 const images = [
-  "https://makita.com.vn/uploads/2021/06/cleaner-01new-01-01-4.jpg",
-  "https://makita.com.vn/uploads/2021/06/2021_lxt-vn-18v-01-1.jpg",
-  "/cleaning.png",
-  "/40Vmax.png",
+  // "https://makita.com.vn/uploads/2021/06/cleaner-01new-01-01-4.jpg",
+  // "https://makita.com.vn/uploads/2021/06/2021_lxt-vn-18v-01-1.jpg",
+  // "/cleaning.png",
+  "/banner.png",
 ]
 
 builder.init(PUBLIC_KEYS.BUILDER)
@@ -51,7 +51,7 @@ export default async function IndexPage() {
           {images.map((src, index) => (
             <CarouselItem key={index}>
               <div
-                className="h-[60dvh] w-full rounded-lg bg-cover bg-center"
+                className="h-[70dvh] w-full rounded-lg bg-cover bg-center"
                 style={{ backgroundImage: `url(${src})` }}
               ></div>
             </CarouselItem>
@@ -241,7 +241,7 @@ const Feedback = () => {
             >
               <Card className="relative mt-14 overflow-visible rounded-2xl text-center">
                 <Avatar className="absolute -top-8 left-1/2 size-16 -translate-x-1/2">
-                  <AvatarImage src="https://github.com/shadcn.png" />
+                  <AvatarImage src={item.avata} />
                   <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
 
